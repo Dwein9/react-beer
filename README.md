@@ -1,1 +1,1 @@
-This is a small React project to list and sort through some of the beers I drank in 2016. 
+A small app to display some of the beer I drank in 2016.
