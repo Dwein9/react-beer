@@ -1,8 +1,9 @@
-import beer from '../data/beer'
+const beers = [{id: 1, name: 'Stone IPA'}, {id: 2, name: 'Ballast Point Sculpin'}]
 
-export function allBeers(){
+export default function allBeers(){
+  debugger;
   return {
       type: 'ALL_BEERS',
-      payload: beer
+      payload: beers
   }
 }
