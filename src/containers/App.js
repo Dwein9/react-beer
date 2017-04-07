@@ -6,13 +6,17 @@ import Showbeers from '../components/show_beers';
 class App extends Component {
   render() {
     return (
-      <div className="app">
+      <div>
         <Navbar header={"My Beer List"}/>
+        <div className="container">
+          <div className="row">
+            <div className="centered intro">
+              <h2>Beer!</h2>
+              <p> This will be a list of beers I drank in 2016.</p>
+            </div>
+          </div>
 
-        <div>
-          <h2>Beer!</h2>
-            <p className="intro"> This will be a list of beers I drank in 2016.</p>
-            <Showbeers />
+          <Showbeers />
         </div>
       </div>
     );

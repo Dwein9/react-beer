@@ -1,4 +1,6 @@
-const beers = [{id: 1, name: 'Stone IPA'}, {id: 2, name: 'Ballast Point Sculpin'}]
+import beer from '../data/beer'
+
+const beers = beer
 
 export default function allBeers(){
   debugger;

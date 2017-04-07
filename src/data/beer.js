@@ -1,4 +1,4 @@
-const beers = [
+const beer = [
   {
     id: 1,
     brewery: 'Peak Organic',
@@ -801,4 +801,4 @@ const beers = [
   }
 ];
 
-export default beers;
+export default beer;

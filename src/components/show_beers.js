@@ -12,11 +12,11 @@ class ShowBeers extends Component {
 
   render() {
      let beers = this.props.beers.map((beer, i) =>
-      { return <li key={i} > { beer.name } </li> } )
+      { return <li key={i} > {beer.brewery} { beer.name } </li> } )
      return (
-       <div>
-         <h2>All Beers</h2>
-         <ul className="beers">
+       <div className="row">
+         <ul className="centered beers">
+           <h2>All Beers</h2>
            { beers }
          </ul>
        </div>
