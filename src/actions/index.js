@@ -1,6 +1,7 @@
 import beer from '../data/beer'
 
 export function fetchBeers() {
+  console.log(beer);
   return {
       type: 'FETCH_BEERS',
       payload: beer
@@ -8,16 +9,8 @@ export function fetchBeers() {
 }
 
 export function faveBeers() {
-
-    let faves = []
-     beer.map((b) => {
-       if (b.favorite) {
-         faves.push(b)
-       }
-     })
-
   return {
     type: 'FETCH_FAVES',
-    payload: faves
+    payload: beer[0]
   }
 }

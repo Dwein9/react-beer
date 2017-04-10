@@ -1,4 +1,6 @@
-export default function(state=[], action) {
+import beer from '../data/beer'
+
+export default function(state=beer, action) {
   switch (action.type) {
     case 'FETCH_BEERS':
       return action.payload

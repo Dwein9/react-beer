@@ -1,27 +1,56 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchBeers} from '../actions/index'
+import {fetchBeers, faveBeers} from '../actions/index'
 
 class ShowBeers extends Component {
   constructor(props) {
-     super(props)
-   }
+    super(props)
+    this.state = { beer: this.props.beers }
+ }
 
    componentDidMount() {
      this.props.dispatch(fetchBeers())
    }
 
+   randomOne(){
+     let num = Math.floor(Math.random()*this.props.beers.length)
+
+     this.setState({
+       beer: [this.props.beers[num]]
+     })
+   }
+
+   seeAll(){
+     this.setState({
+       beer: this.props.beers
+     })
+   }
+
   render() {
-     let beers = this.props.beers.map((beer, i) =>
-      { return <li key={i} > {i+1}. {beer.brewery} { beer.name } </li> } )
-     return (
-       <div className="row">
-         <ul className="centered beers">
-           <h2>All Beers</h2>
-           { beers }
-         </ul>
-       </div>
-     )
+     let beers = this.state.beer.map((beer, i) => { return <li key={i} > {i+1}. {beer.brewery} { beer.name } </li> } )
+
+
+     if (beers.length > 1) {
+       return (
+         <div className="row">
+           <button onClick={this.randomOne.bind(this)}>Get Random</button>
+           <ul className="centered beers">
+             <h2>All Beers</h2>
+             { beers }
+           </ul>
+         </div>
+       )
+      }
+
+      return (
+        <div className="row">
+          <button onClick={this.seeAll.bind(this)}>See All</button>
+          <ul className="centered beers">
+            <h2>Random Beer</h2>
+            { beers }
+          </ul>
+        </div>
+      )
    }
  }
 

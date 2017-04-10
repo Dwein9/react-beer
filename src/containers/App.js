@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Navbar from '../components/nav';
 import Showbeers from '../components/show_beers';
 import Faves from '../components/faves';
-
 // import BeerIndex from '../components/beer_index';
 
 class App extends Component {
@@ -15,7 +14,6 @@ class App extends Component {
             <div className="centered intro">
               {this.props.children}
             </div>
-            <Faves />
             <Showbeers />
           </div>
         </div>

@@ -8,15 +8,34 @@ class Faves extends Component {
      super(props)
    }
 
-  getFaves(){
+  componentDidMount(){
     this.props.dispatch(faveBeers())
-    debugger
   }
 
+  // getFaves(){
+  //   let faves = []
+  //   for (var i = 0; i < this.props.beers.length; i++) {
+  //     if (this.props.beers[i].favorite){
+  //       faves.push(this.props.beer[i])
+  //     }
+  //   }
+  //   return faves
+  // }
+
   render() {
+
+    let faves = []
+    for (var i = 0; i < this.props.beers.length; i++) {
+      if (this.props.beers[i].favorite){
+        faves.push(this.props.beers[i])
+      }
+    }
+
+    let hi = faves.map((beer, i) =>
+    { return <li key={i} > {i+1}. {beer.brewery} { beer.name } </li> } )
     return (
       <div className="faves">
-        <button onClick={this.getFaves.bind(this)}>Hi</button>
+        {hi}
       </div>
     )
   }
