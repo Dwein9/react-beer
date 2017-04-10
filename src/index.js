@@ -5,11 +5,7 @@ import App from './containers/app';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import '../style/style.css';
-// import beer from '../data/beer';
 
-// const beers = { beer };
-
-// const store = createStore(rootReducer, beers);
 const store = createStore(rootReducer)
 
 ReactDOM.render(

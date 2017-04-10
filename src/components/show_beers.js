@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import allBeers from '../actions/index.js'
-
+import {fetchBeers} from '../actions/index'
 
 class ShowBeers extends Component {
+  constructor(props) {
+     super(props)
+   }
 
-  componentDidMount() {
-    var action = allBeers()
-    this.props.dispatch(action)
-}
+   componentDidMount() {
+     this.props.dispatch(fetchBeers())
+   }
 
   render() {
      let beers = this.props.beers.map((beer, i) =>
-      { return <li key={i} > {beer.brewery} { beer.name } </li> } )
+      { return <li key={i} > {i+1}. {beer.brewery} { beer.name } </li> } )
      return (
        <div className="row">
          <ul className="centered beers">

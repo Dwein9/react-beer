@@ -1,17 +1,23 @@
 import beer from '../data/beer'
 
-const beers = beer
-
-function allBeers(){
+export function fetchBeers() {
   return {
-      type: 'ALL_BEERS',
-      payload: beers
+      type: 'FETCH_BEERS',
+      payload: beer
   }
 }
 
-function faveBeers(beer){
+export function faveBeers() {
+
+    let faves = []
+     beer.map((b) => {
+       if (b.favorite) {
+         faves.push(b)
+       }
+     })
+
   return {
-      type: 'FAVE_BEERS',
-      payload: beer
+    type: 'FETCH_FAVES',
+    payload: faves
   }
 }

@@ -1,23 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react'
 import { faveBeers } from '../actions/index.js'
-
-export default function Faves(props) {
-
-  // myFaves(){
-  //   this.props.beers.map((beer, i) {
-  //     let faves = []
-  //     if (beer.favorite) {
-  //       { return <li key={i} > {beer.brewery} { beer.name } </li> } )
-  //     }
-  //   }
-  // }
+import { connect } from 'react-redux'
 
 
-  return (
+class Faves extends Component {
+  constructor(props) {
+     super(props)
+   }
+
+  getFaves(){
+    this.props.dispatch(faveBeers())
+    debugger
+  }
+
+  render() {
+    return (
       <div className="faves">
-        <h1>Hi</h1>
-        {/* {this.myFaves.bind(this)} */}
+        <button onClick={this.getFaves.bind(this)}>Hi</button>
       </div>
-
-  )
+    )
+  }
 }
+
+function mapStateToProps(state) {
+  return {
+    beers: state.beers
+  }
+}
+
+
+export default connect(mapStateToProps)(Faves)

@@ -6,7 +6,6 @@ body {
 
 .intro {
   align-content: center;
-  color: hotpink;
 }
 
 .title {
@@ -21,4 +20,5 @@ body {
 .beers {
   list-style-type: none;
   font-size: 18px;
+  color: hotpink;
 }
