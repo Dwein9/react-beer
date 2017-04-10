@@ -11,6 +11,11 @@ body {
 
 .title {
   font-size: 35px;
+  font-weight: bold;
+}
+
+.navbar .container-fluid .navbar-header > a:hover {
+    color: hotpink;
 }
 
 .beers {

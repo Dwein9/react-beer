@@ -7,10 +7,11 @@ function allBeers(){
       type: 'ALL_BEERS',
       payload: beers
   }
+}
 
-function faveBeers(){
+function faveBeers(beer){
   return {
       type: 'FAVE_BEERS',
-      payload: 'test'
+      payload: beer
   }
 }

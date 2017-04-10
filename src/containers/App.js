@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/nav';
 import Showbeers from '../components/show_beers';
+
 // import BeerIndex from '../components/beer_index';
 
 class App extends Component {
@@ -11,11 +12,11 @@ class App extends Component {
         <div className="container">
           <div className="row">
             <div className="centered intro">
+              {this.props.children}
               <h2>Beer!</h2>
               <p> This will be a list of beers I drank in 2016.</p>
             </div>
           </div>
-
           <Showbeers />
         </div>
       </div>
