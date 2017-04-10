@@ -2,10 +2,15 @@ import beer from '../data/beer'
 
 const beers = beer
 
-export default function allBeers(){
-  debugger;
+function allBeers(){
   return {
       type: 'ALL_BEERS',
       payload: beers
+  }
+
+function faveBeers(){
+  return {
+      type: 'FAVE_BEERS',
+      payload: 'test'
   }
 }

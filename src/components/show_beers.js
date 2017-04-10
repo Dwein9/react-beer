@@ -30,5 +30,4 @@ class ShowBeers extends Component {
    }
  }
 
- const hello = connect(mapStateToProps)(ShowBeers)
- export default hello
+export default connect(mapStateToProps)(ShowBeers)
