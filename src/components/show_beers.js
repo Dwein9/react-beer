@@ -26,25 +26,51 @@ class ShowBeers extends Component {
      })
    }
 
+   faves(){
+     function isFave(obj) {
+       if (obj.favorite) {
+         return true
+       }
+       return false;
+     }
+
+     this.setState({
+       beer: this.props.beers.filter(isFave)
+     })
+   }
+
   render() {
      let beers = this.state.beer.map((beer, i) => { return <li key={i} > {i+1}. {beer.brewery} { beer.name } </li> } )
 
 
-     if (beers.length > 1) {
+     if (beers.length > 25) {
        return (
          <div className="row">
            <button onClick={this.randomOne.bind(this)}>Get Random</button>
+           <button onClick={this.faves.bind(this)}>Get Favorites</button>
            <ul className="centered beers">
              <h2>All Beers</h2>
              { beers }
            </ul>
          </div>
        )
-      }
+     } else if (beers.length > 2) {
+       return (
+         <div className="row">
+           <button onClick={this.randomOne.bind(this)}>Get Random</button>
+           <button onClick={this.seeAll.bind(this)}>See All</button>
+           <ul className="centered beers">
+             <h2>Favorite Beers</h2>
+             { beers }
+           </ul>
+         </div>
+       )
+     }
 
       return (
         <div className="row">
           <button onClick={this.seeAll.bind(this)}>See All</button>
+          <button onClick={this.faves.bind(this)}>Get Favorites</button>
           <ul className="centered beers">
             <h2>Random Beer</h2>
             { beers }

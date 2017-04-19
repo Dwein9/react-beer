@@ -690,7 +690,7 @@ const beer = [
   {
     id: 87,
     brewery: 'Anchor Brewing Co.',
-    name: 'Summer wheat',
+    name: 'Summer Wheat',
     style: 'Ale',
     month: 'April',
     favorite: false
