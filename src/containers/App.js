@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/nav';
 import Showbeers from '../components/show_beers';
-import Faves from '../components/faves';
-// import BeerIndex from '../components/beer_index';
+import SelectBeer from '../components/select_beer';
 
 class App extends Component {
   render() {
@@ -10,12 +9,14 @@ class App extends Component {
       <div>
         <Navbar header={"My Beer List"}/>
         <div className="container">
-          <div className="row">
-            <div className="centered intro">
-              {this.props.children}
+            <div>
+              <Showbeers />
             </div>
-            <Showbeers />
-          </div>
+
+            <div className='col-md-8'>
+              <SelectBeer />
+            </div>
+
         </div>
       </div>
     );

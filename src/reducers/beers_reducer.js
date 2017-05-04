@@ -1,10 +1,10 @@
-import beer from '../data/beer'
-
-export default function(state=beer, action) {
+export default function(state=[], action) {
   switch (action.type) {
     case 'FETCH_BEERS':
       return action.payload
-      case 'FETCH_FAVES':
+      case 'FAVORITE_BEERS':
+        return action.payload
+      case 'RANDOM_BEER':
         return action.payload
     default:
       return state
