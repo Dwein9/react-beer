@@ -23,3 +23,12 @@ body {
   color: hotpink;
   padding-left: 0;
 }
+
+a {
+  color: hotpink;
+}
+
+a:hover {
+  cursor: pointer;
+  color: black;
+}

@@ -9,13 +9,16 @@ class App extends Component {
       <div>
         <Navbar header={"My Beer List"}/>
         <div className="container">
-            <div>
+          <div className="row">
+
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
               <Showbeers />
             </div>
 
-            <div className='col-md-8'>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-8">
               <SelectBeer />
             </div>
+          </div>
 
         </div>
       </div>

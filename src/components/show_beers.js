@@ -1,58 +1,58 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchBeers, fetchFavoriteBeers, fetchRandomBeer, beerSelect} from '../actions/index'
+import {fetchBeers, selectBeer} from '../actions/index'
 
 class ShowBeers extends Component {
-   componentDidMount() {
-     this.props.fetchBeers()
-   }
 
+  componentDidMount() {
+    this.props.dispatch(fetchBeers())
+  }
 
-   handleClick(event) {
-        debugger;
-       this.props.beerSelect(event.target.dataset.id)
-     }
+  getBeer(beerId) {
+    let beerSelection = this.props.beers.filter( beer => beer.id === beerId)[0]
+    console.log("clicked");
+    debugger
+    this.props.dispatch(selectBeer(beerSelection))
+  }
 
+  render() {
+    const beers = this.props.beers.map( (beer, index) => {
+      return (
+        <li key={beer.id}>
+          <a onClick={this.getBeer.bind(this, beer.id)}>{index+1}. {beer.brewery} { beer.name }</a>
+        </li>
+      )
+    })
 
-   render() {
-   const beers = this.props.beers
-
-   return (
-     <div className=".col-xs-12 .col-sm-6 .col-lg-8">
-       <h2>All Beers</h2>
-
-       <ul className="beers">
-         { beers.map( (beer, index) => {
-           return <li key={beer.id}>
-             <a data-id={beer.id} onClick={this.handleClick.bind(this)}>{index+1}. {beer.brewery} { beer.name }</a></li> }
-         )}
-       </ul>
-     </div>
-   )
- }
+    return (
+      <div>
+        <h2>All Beers</h2>
+        <ul className="beers">
+           { beers}
+        </ul>
+      </div>
+    )
+  }
 }
 
 function mapStateToProps(state) {
   return {
-    beers: state.beers
+    beers: state.beers,
+    selectBeer: state.selectBeer
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchBeers: function() {
-      var action = fetchBeers()
-      dispatch(action)
-    },
-    fetchFavoriteBeers: function() {
-      var action = fetchFavoriteBeers()
-      dispatch(action)
-    },
-    fetchRandomBeer: function() {
-      var action = fetchRandomBeer()
-      dispatch(action)
-    },
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     fetchBeers: function() {
+//       var action = fetchBeers()
+//       dispatch(action)
+//     },
+//     beerSelect: function(b) {
+//       var action = beerSelect(b)
+//       dispatch(action)
+//     }
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowBeers)
+export default connect(mapStateToProps)(ShowBeers)

@@ -4,7 +4,7 @@ import selectBeerReducer from './selectBeer_reducer';
 
 const rootReducer = combineReducers({
     beers: beersReducer,
-    SelectBeer: selectBeerReducer
+    selectBeer: selectBeerReducer
 })
 
 export default rootReducer

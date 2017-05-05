@@ -1,32 +1,32 @@
 import React, { Component } from 'react'
-// import { beerSelect } from '../actions/index.js'
 import { connect } from 'react-redux'
 
 
 class SelectBeer extends Component {
-
   render() {
-    let beer = this.props.currentBeer
-    debugger  
+    if (this.props.selectBeer) {
+      const beer = this.props.selectBeer
+      return (
+        <div className="select">
+          <h1> {"Name:"} {beer.brewery} { beer.name } </h1>
+          <h3> {"Style: "} { beer.style } </h3>
+          <h5> {"Drank in "} { beer.month } </h5>
 
-    return (
-      <div className="select">
-        <h1> {beer.brewery} { beer.name } </h1>
-        <h3> {"Style: "} { beer.style } </h3>
-        <h5> {"Drank in "} { beer.month } </h5>
-      </div>
-    )
+          <h3> { beer.favorite ? "This is a personal favorite." : "" } </h3>
+
+        </div>
+      )}
+       return (
+        <div>
+          {'Select a beer from the list'}
+        </div>
+      )
   }
 }
 
 function mapStateToProps(state) {
-
-    const beer = state.beers.find(beer => beer.id === state.currentBeer) || {}
-
-
   return {
-    beers: state.beers,
-    currentBeer: beer
+    selectBeer: state.selectBeer
   }
 }
 

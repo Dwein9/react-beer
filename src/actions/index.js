@@ -1,31 +1,35 @@
 import beer from '../data/beer'
 
+const allBeers = beer
+
 export function fetchBeers() {
   return {
       type: 'FETCH_BEERS',
-      payload: beer
+      payload: allBeers
   }
 }
 
-export function fetchFavoriteBeers() {
-  return {
-    type: 'FAVORITE_BEERS',
-    payload: beer[0]
-  }
-}
+// export function fetchFavoriteBeers() {
+//   return {
+//     type: 'FAVORITE_BEERS',
+//     payload: beer[0]
+//   }
+// }
+//
+// export function fetchRandomBeer() {
+//   let num = Math.floor(Math.random()*beer.length)
+//
+//   return {
+//     type: 'RANDOM_BEER',
+//     payload: beer[num]
+//   }
+// }
 
-export function fetchRandomBeer() {
-  let num = Math.floor(Math.random()*beer.length)
-
-  return {
-    type: 'RANDOM_BEER',
-    payload: beer[num]
-  }
-}
-
-export function beerSelect(key) {
+export function selectBeer(beerSelection) {
+  console.log(beerSelection);
+  console.log("action");
   return {
     type: 'SELECT_BEER',
-    payload: key
+    payload: beerSelection
   }
 }
