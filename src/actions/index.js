@@ -26,8 +26,6 @@ export function fetchBeers() {
 // }
 
 export function selectBeer(beerSelection) {
-  console.log(beerSelection);
-  console.log("action");
   return {
     type: 'SELECT_BEER',
     payload: beerSelection

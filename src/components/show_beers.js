@@ -4,15 +4,13 @@ import {fetchBeers, selectBeer} from '../actions/index'
 
 class ShowBeers extends Component {
 
-  componentDidMount() {
-    this.props.dispatch(fetchBeers())
+  componentWillMount() {
+    this.props.fetchBeers()
   }
 
   getBeer(beerId) {
     let beerSelection = this.props.beers.filter( beer => beer.id === beerId)[0]
-    console.log("clicked");
-    debugger
-    this.props.dispatch(selectBeer(beerSelection))
+    this.props.selectBeer(beerSelection)
   }
 
   render() {
@@ -42,17 +40,17 @@ function mapStateToProps(state) {
   }
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     fetchBeers: function() {
-//       var action = fetchBeers()
-//       dispatch(action)
-//     },
-//     beerSelect: function(b) {
-//       var action = beerSelect(b)
-//       dispatch(action)
-//     }
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchBeers: function() {
+      var action = fetchBeers()
+      dispatch(action)
+    },
+    selectBeer: function(beer) {
+      var action = selectBeer(beer)
+      dispatch(action)
+    }
+  }
+}
 
-export default connect(mapStateToProps)(ShowBeers)
+export default connect(mapStateToProps, mapDispatchToProps)(ShowBeers)
