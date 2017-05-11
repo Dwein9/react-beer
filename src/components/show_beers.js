@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {fetchBeers, selectBeer} from '../actions/index'
+import { fetchBeers } from '../actions/index'
+import BeerListItem from './beer_list_item'
+
 
 class ShowBeers extends Component {
 
@@ -8,35 +10,12 @@ class ShowBeers extends Component {
     this.props.fetchBeers()
   }
 
-  getBeer(beerId) {
-    let beerSelection = this.props.beers.filter( beer => beer.id === beerId)[0]
-    this.props.selectBeer(beerSelection)
-  }
-
   render() {
-    const beers = this.props.beers.map( (beer, index) => {
-      return (
-        <li key={beer.id}>
-          <a onClick={this.getBeer.bind(this, beer.id)}>{index+1}. {beer.brewery} { beer.name }</a>
-        </li>
-      )
-    })
-
     return (
       <div>
-        <h2>All Beers</h2>
-        <ul className="beers">
-           { beers}
-        </ul>
+        <BeerListItem beers={this.props.beers}/>
       </div>
     )
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    beers: state.beers,
-    selectBeer: state.selectBeer
   }
 }
 
@@ -45,12 +24,8 @@ function mapDispatchToProps(dispatch) {
     fetchBeers: function() {
       var action = fetchBeers()
       dispatch(action)
-    },
-    selectBeer: function(beer) {
-      var action = selectBeer(beer)
-      dispatch(action)
     }
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowBeers)
+export default connect(null, mapDispatchToProps)(ShowBeers)
