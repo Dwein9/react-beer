@@ -15,13 +15,12 @@ export function fetchBeers() {
 //     payload: beer[0]
 //   }
 // }
-//
+
 export function fetchRandomBeer() {
   let num = Math.floor(Math.random()*beer.length)
-
   return {
     type: 'RANDOM_BEER',
-    payload: beer[num]
+    payload: allBeers[num]
   }
 }
 

@@ -14,14 +14,16 @@ class BeerListItem extends Component {
     this.props.selectBeer(beerSelection)
   }
 
-  handleClick() {
-    console.log("Clicked");
+  getRandomBeer() {
+    this.props.fetchRandomBeer()
+    let randomBeer = this.props.beers
+    this.setState( {beers: [randomBeer]} )
   }
 
   render() {
     const beers = this.state.beers.map( (beer, index) => {
       return (
-        <li key={beer.id}>
+        <li key={index}>
           <a onClick={this.getBeer.bind(this, beer.id)}>{index+1}. {beer.brewery} { beer.name }</a>
         </li>
       )
@@ -31,7 +33,7 @@ class BeerListItem extends Component {
       <div>
         <h2>Beer</h2>
         <div>
-          <button onClick={this.handleClick.bind(this)}>Test</button>
+          <button onClick={this.getRandomBeer.bind(this)}>Random</button>
         </div>
       <ul className="beers">
          { beers }
@@ -44,7 +46,6 @@ class BeerListItem extends Component {
 function mapStateToProps(state) {
   return {
     beers: state.beers,
-    selectBeer: state.selectBeer
   }
 }
 
