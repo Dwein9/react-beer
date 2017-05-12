@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { selectBeer, fetchRandomBeer } from '../actions/index'
+import { selectBeer, fetchRandomBeer, fetchBeers } from '../actions/index'
 
 class BeerListItem extends Component {
 
@@ -20,6 +20,14 @@ class BeerListItem extends Component {
     this.setState( {beers: [randomBeer]} )
   }
 
+  getAllBeers() {
+    this.props.fetchBeers()
+    debugger;
+    let beers = this.props.beers
+    this.setState( {beers: beers} )
+  }
+
+
   render() {
     const beers = this.state.beers.map( (beer, index) => {
       return (
@@ -32,9 +40,10 @@ class BeerListItem extends Component {
     return (
       <div>
         <h2>Beer</h2>
-        <div>
+        <span>
           <button onClick={this.getRandomBeer.bind(this)}>Random</button>
-        </div>
+          <button onClick={this.getAllBeers.bind(this)}>See All</button>
+        </span>
       <ul className="beers">
          { beers }
       </ul>
@@ -58,7 +67,11 @@ function mapDispatchToProps(dispatch) {
     fetchRandomBeer: function() {
       var action = fetchRandomBeer()
       dispatch(action)
-    }
+    },
+    fetchBeers: function() {
+      var action = fetchBeers()
+      dispatch(action)
+    },
   }
 }
 
