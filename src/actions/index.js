@@ -30,3 +30,21 @@ export function selectBeer(beerSelection) {
     payload: beerSelection
   }
 }
+
+// export function fetchStyles() {
+//
+//   var styles = allBeers.reduce((obj, item) => {
+//     if (!!obj[item.style]) {
+//       obj[item.style]++
+//     } else {
+//       obj[item.style] = 1
+//     }
+//     return obj
+//   }, {}
+// )
+//
+//   return {
+//     type: 'SELECT_BEER',
+//     payload: Object.keys(styles)
+//   }
+// }

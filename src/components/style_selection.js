@@ -16,9 +16,9 @@ export default class StyleSelection extends Component {
     }
 
   render() {
-    const styles = ["Select All", "IPA", "Ale", "Stout", "Lager", "Bock", "SaIson", "PIlsner", "Porter", "RauchbIer", "WItbIer", "Kolsch", "ESB", "FruIt Beer", "Gose"].map((style) => {
+    const styles = ["Select All", "IPA", "Ale", "Stout", "Lager", "Bock", "SaIson", "PIlsner", "Porter", "RauchbIer", "WItbIer", "Kolsch", "ESB", "FruIt Beer", "Gose"].map((style, index) => {
       return (
-        <option value={style}>{style}</option>
+        <option key={index} value={style}>{style}</option>
       )
     })
     return(

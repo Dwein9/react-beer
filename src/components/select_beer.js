@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-
 class SelectBeer extends Component {
   render() {
-    if (this.props.selectBeer) {
+    if (!!this.props.selectBeer) {
       const beer = this.props.selectBeer
       return (
         <div className="select">

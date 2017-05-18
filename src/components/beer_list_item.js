@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { selectBeer, fetchRandomBeer, fetchBeers } from '../actions/index'
+import Proptypes from 'prop-types';
 
 class BeerListItem extends Component {
 
@@ -22,7 +23,6 @@ class BeerListItem extends Component {
 
   getAllBeers() {
     this.props.fetchBeers()
-    debugger;
     let beers = this.props.beers
     this.setState( {beers: beers} )
   }
@@ -76,3 +76,11 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BeerListItem)
+
+
+
+BeerListItem.propTypes = {
+  beers: Proptypes.arrayOf(Proptypes.object.isRequired).isRequired,
+  fetchRandomBeer: Proptypes.func.isRequired,
+  fetchBeers: Proptypes.func.isRequired,
+}
