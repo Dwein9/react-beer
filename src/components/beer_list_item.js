@@ -38,7 +38,7 @@ class BeerListItem extends Component {
     })
 
     return (
-      <div>
+      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4" >
         <h2>Beer</h2>
         <span>
           <button onClick={this.getRandomBeer.bind(this)}>Random</button>

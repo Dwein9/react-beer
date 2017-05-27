@@ -6,7 +6,7 @@ class SelectBeer extends Component {
     if (!!this.props.selectBeer) {
       const beer = this.props.selectBeer
       return (
-        <div className="select">
+        <div className="select col-xs-12 col-sm-12 col-md-6 col-lg-8">
           <h1> {"Name:"} {beer.brewery} { beer.name } </h1>
           <h3> {"Style: "} { beer.style } </h3>
           <h5> {"Drank in "} { beer.month } </h5>
