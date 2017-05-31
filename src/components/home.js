@@ -1,16 +1,14 @@
 import React, { Component } from 'react'
-var Link = require('react-router-dom').Link;
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
   render() {
     return (
       <div className="home-container">
         <div>
-          <h1>View beers by month or by style.</h1>
-        </div>
-        <div>
+          <h1>Select to view all beers or beers by style.</h1>
           {/* <Link className='btn link-button' to='/month'>Sign Up</Link> */}
-          <Link className='btn link-button' to='/style'>Style</Link>
+          <button className='btn btn-home'><Link to='/beers'>View All Beers</Link></button>
         </div>
      </div>
     )

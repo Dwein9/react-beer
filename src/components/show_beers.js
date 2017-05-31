@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchBeers } from '../actions/index'
 import BeerListItem from './beer_list_item'
-      import SelectBeer from '../components/select_beer';
+import SelectBeer from '../components/select_beer';
 
 class ShowBeers extends Component {
 

@@ -24,6 +24,17 @@ body {
   padding-left: 0;
 }
 
+.btn-home {
+  background-color: white;
+  border-color: hotpink;
+  border-width: thin;
+}
+
+.btn-home:hover {
+  transform: scale(1.1);
+  color: hotpink;
+}
+
 a {
   color: hotpink;
 }

@@ -9,7 +9,7 @@ import '../style/style.css';
 const store = createStore(rootReducer)
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store={store} >
     <App />
   </Provider>,
   document.getElementById('root')
