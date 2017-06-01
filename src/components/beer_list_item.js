@@ -41,8 +41,8 @@ class BeerListItem extends Component {
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4" >
         <h2>Beer</h2>
         <span>
-          <button onClick={this.getRandomBeer.bind(this)}>Random</button>
-          <button onClick={this.getAllBeers.bind(this)}>See All</button>
+          <button className="toggle" onClick={this.getRandomBeer.bind(this)}>Random</button>
+          <button className="toggle" onClick={this.getAllBeers.bind(this)}>See All</button>
         </span>
       <ul className="beers">
          { beers }

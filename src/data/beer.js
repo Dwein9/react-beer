@@ -131,7 +131,7 @@ const beer = [
     id: 17,
     brewery: 'Goose Island Beer Co.',
     name: 'Sofie',
-    style: 'SaIson',
+    style: 'Saison',
     month: 'January',
     favorite: false
   },
@@ -227,7 +227,7 @@ const beer = [
     id: 29,
     brewery: 'Uinta Brewing Co.',
     name: '801',
-    style: 'PIlsner',
+    style: 'Pilsner',
     month: 'February',
     favorite: false
   },
@@ -363,7 +363,7 @@ const beer = [
     id: 46,
     brewery: 'Aecht Schlenkerla',
     name: 'Helles Lagerbier',
-    style: 'RauchbIer',
+    style: 'Rauchbier',
     month: 'March',
     favorite: false
   },
@@ -379,7 +379,7 @@ const beer = [
     id: 48,
     brewery: 'Hoegaarden Brewery',
     name: 'Original White Ale',
-    style: 'WItbIer',
+    style: 'Witbier',
     month: 'March',
     favorite: false
   },
@@ -451,7 +451,7 @@ const beer = [
     id: 57,
     brewery: 'Shock Top Brewing Co.',
     name: 'Belgian White',
-    style: 'WItbIer',
+    style: 'Witbier',
     month: 'March',
     favorite: false
   },
@@ -475,7 +475,7 @@ const beer = [
     id: 60,
     brewery: 'Miller Brewing Co.',
     name: 'Miller High Life',
-    style: 'PIlsner',
+    style: 'Pilsner',
     month: 'March',
     favorite: false
   },
@@ -515,7 +515,7 @@ const beer = [
     id: 65,
     brewery: 'Radeberger Exportbierbrauerei',
     name: 'Pilsner',
-    style: 'PIlsner',
+    style: 'Pilsner',
     month: 'March',
     favorite: false
   },
@@ -539,7 +539,7 @@ const beer = [
     id: 68,
     brewery: 'Finback Brewery',
     name: 'Family',
-    style: 'SaIson',
+    style: 'Saison',
     month: 'March',
     favorite: false
   },
@@ -659,7 +659,7 @@ const beer = [
     id: 83,
     brewery: 'Abita Brewing Co.',
     name: 'Purple Haze',
-    style: 'FruIt Beer',
+    style: 'Fruit Beer',
     month: 'April',
     favorite: false
   },
@@ -683,7 +683,7 @@ const beer = [
     id: 86,
     brewery: 'Plzeňský Prazdroj',
     name: 'Pilsner Urquell',
-    style: 'PIlsner',
+    style: 'Pilsner',
     month: 'April',
     favorite: false
   },
@@ -723,7 +723,7 @@ const beer = [
     id: 91,
     brewery: 'Almanac Beer Co.',
     name: 'Dolores',
-    style: 'SaIson',
+    style: 'Saison',
     month: 'April',
     favorite: false
   },

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from '../components/nav';
-import Showbeers from '../components/show_beers';
-import StyleSelection from '../components/style_selection';
+import ShowBeers from '../components/show_beers';
+import ShowStyles from '../components/show_styles';
 import Home from '../components/home';
 
 class App extends Component {
@@ -16,8 +16,8 @@ class App extends Component {
             <div className="row">
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/beers' component={Showbeers} />
-                <Route path='/months' component={StyleSelection} />
+                <Route path='/beers' component={ShowBeers} />
+                <Route path='/styles' component={ShowStyles} />
               </Switch>
             </div>
           </div>

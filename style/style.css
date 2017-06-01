@@ -24,6 +24,10 @@ body {
   padding-left: 0;
 }
 
+.toggle {
+  margin: 5px;
+}
+
 .btn-home {
   background-color: white;
   border-color: hotpink;
