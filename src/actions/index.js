@@ -1,4 +1,6 @@
 import beer from '../data/beer'
+// import styles from '../data/beer'
+// import favorites from '../data/beer'
 
 const allBeers = beer
 

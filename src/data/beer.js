@@ -801,4 +801,25 @@ const beer = [
   }
 ];
 
-export default beer;
+
+const styles = []
+const months = []
+
+for (var i = 0; i < beer.length; i++) {
+  if (!styles.includes(beer[i].style)) {
+	styles.push( beer[i].style )
+	}
+}
+
+for (var j = 0; j < beer.length; j++) {
+  if (!months.includes(beer[j].month)) {
+	months.push( beer[j].month )
+	}
+}
+
+const favorites = beer.filter((b)=> b.favorite)
+
+export default beer
+// export {styles}
+// export {months}
+// export {favorites}
