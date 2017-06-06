@@ -817,7 +817,7 @@ for (var j = 0; j < beer.length; j++) {
 	}
 }
 
-const favorites = beer.filter((b)=> b.favorite)
+// const favorites = beer.filter((b)=> b.favorite)
 
 export default beer
 // export {styles}

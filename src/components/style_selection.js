@@ -1,80 +1,78 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchStyles, fetchBeers } from '../actions/index'
+import Proptypes from 'prop-types';
 
 class StyleSelection extends Component {
   constructor(props) {
      super(props)
      this.state = {
-       selectedStyle: 'Select All',
+       selectedStyle: this.props.styles[0],
        beers: this.props.beers
      }
+     this.showStyles = this.showStyles.bind(this)
    }
 
-   showBeers(style){
-     this.props.fetchStyles(style)
-     console.log("afterfetchstyles");
-     let beers = this.props.beers
-     console.log("about to set state");
-     console.log(beers);
-     console.log(this.state.beers);
-     this.setState({
-       beers: beers
+   showStyles() {
+     return this.props.styles.map((style, index) => {
+       return (
+         <option key={index} value={style}>{style}</option>
+       )
      })
    }
 
    updateStyle(e) {
+     console.log(e.target.value);
      this.setState({
-       selectedStyle: e.target.value
+       selectedStyle: e.target.value,
      })
-     this.showBeers(e.target.value)
-    }
+   }
 
-    beerDisplay(){
+  //  showBeers(style){
+  //    this.props.fetchStyles(style)
+  //    let beers = this.props.beers
+  //    this.setState({
+  //      beers: beers
+  //    })
+  //  }
+
+
+    changeItUp(){
       if (this.state.selectedStyle === "Select All") {
-        return (
-          <li>
-            Hi.
-          </li>
-        )
+        this.props.fetchBeers()
+        let allBeers = this.props.beers
+        this.setState( { beers: allBeers } )
       } else {
-        this.state.beers.map( (beer, index) => {
-          return (
-            <li key={index}>
-              {index+1}. {beer.brewery} { beer.name }
-            </li>
-          )
-        })
+        this.props.fetchStyles(this.state.selectedStyle)
+        let beersByStyls = this.props.beers
+        this.setState( { beers: beersByStyls } )
       }
     }
 
 
   render() {
-    const styles = ["Select All", "IPA", "Ale", "Stout", "Lager", "Bock", "Saison", "Pilsner", "Porter", "Rauchbier", "Witbier", "Kolsch", "ESB", "Fruit Beer", "Gose"].map((style, index) => {
-      return (
-        <option key={index} value={style}>{style}</option>
-      )
-    })
-
-    const beersByStyle = this.beerDisplay()
-    console.log("within render")
-    console.log(this.state.beers)
-
+    console.log(this.state.beers);
     return(
       <div>
         <h1>View beers by style</h1>
         <select value={this.state.selectedStyle} onChange={this.updateStyle.bind(this)}>
-          {styles}
+          {this.showStyles()}
         </select>
-        <div>{ this.state.selectedStyle === "Select All" ?
+        <div> {this.state.selectedStyle === "Select All" ?
           "" :
-          // <div> {this.state.selectedStyle} </div>
+          <h1>{this.state.selectedStyle}</h1>}
+         </div>
         <ul>
-          {beersByStyle}
-        </ul>}
+          <button onClick={this.changeItUp.bind(this)}>Change</button>
+        </ul>
       </div>
-    </div>
     )
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    beers: state.beers,
   }
 }
 
@@ -92,4 +90,9 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(StyleSelection)
+export default connect(mapStateToProps, mapDispatchToProps)(StyleSelection)
+
+StyleSelection.propTypes = {
+  styles: Proptypes.arrayOf(Proptypes.string.isRequired).isRequired,
+  beers: Proptypes.arrayOf(Proptypes.object.isRequired).isRequired
+}

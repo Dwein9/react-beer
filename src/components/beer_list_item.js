@@ -7,7 +7,7 @@ class BeerListItem extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {beers: this.props.beers}
+    this.state = { beers: this.props.beers }
   }
 
   getBeer(beerId) {

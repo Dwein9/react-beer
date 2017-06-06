@@ -10,10 +10,10 @@ class ShowStyles extends Component {
   }
 
   render() {
-    debugger
+    const styles = ["Select All", "IPA", "Ale", "Stout", "Lager", "Bock", "Saison", "Pilsner", "Porter", "Rauchbier", "Witbier", "Kolsch", "ESB", "Fruit Beer", "Gose"]
     return (
       <div>
-        <StyleSelection beers={this.props.beers}/>
+        <StyleSelection beers={this.props.beers} styles={styles}/>
       </div>
     )
   }
