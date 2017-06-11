@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchBeers } from '../actions/index'
-import BeerListItem from './beer_list_item'
-import SelectBeer from '../components/select_beer';
+import Favorites from '../components/favorites';
 
-class ShowBeers extends Component {
+class ShowFavorites extends Component {
 
   componentWillMount() {
     this.props.fetchBeers()
@@ -13,8 +12,7 @@ class ShowBeers extends Component {
   render() {
     return (
       <div>
-        <BeerListItem beers={this.props.beers}/>
-        <SelectBeer />
+        <Favorites beers={this.props.beers} />
       </div>
     )
   }
@@ -29,4 +27,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(ShowBeers)
+export default connect(null, mapDispatchToProps)(ShowFavorites)

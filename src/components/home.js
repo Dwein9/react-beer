@@ -9,6 +9,7 @@ class Home extends Component {
           <h1>Select to view all beers or beers by style.</h1>
           <button className='btn btn-home'><Link to='/beers'>View All Beers</Link></button>
           <button className='btn btn-home'><Link to='/styles'>View By Styles</Link></button>
+          <button className='btn btn-home'><Link to='/faves'>View My Faves</Link></button>
         </div>
      </div>
     )
