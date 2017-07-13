@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchBeers } from '../actions/index'
 import Favorites from '../components/favorites';
+import SelectBeer from '../components/select_beer';
 
 class ShowFavorites extends Component {
 
@@ -13,6 +14,7 @@ class ShowFavorites extends Component {
     return (
       <div>
         <Favorites beers={this.props.beers} />
+        <SelectBeer />
       </div>
     )
   }
