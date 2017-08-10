@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchStyles, fetchBeers } from '../actions/index'
 import Proptypes from 'prop-types';
 
 class StyleSelection extends Component {
@@ -21,76 +19,59 @@ class StyleSelection extends Component {
      })
    }
 
+   updateBeers(style){
+     let beers = this.props.beers
+
+     if (style === "Select All") {
+       return beers
+     } else {
+       return beers.filter(beer => beer.style === style)
+     }
+   }
+
    updateStyle(e) {
-     console.log(e.target.value);
      this.setState({
        selectedStyle: e.target.value,
+       beers: this.updateBeers(e.target.value)
      })
    }
 
-  //  showBeers(style){
-  //    this.props.fetchStyles(style)
-  //    let beers = this.props.beers
-  //    this.setState({
-  //      beers: beers
-  //    })
-  //  }
-
-
-    changeItUp(){
-      if (this.state.selectedStyle === "Select All") {
-        this.props.fetchBeers()
-        let allBeers = this.props.beers
-        this.setState( { beers: allBeers } )
-      } else {
-        this.props.fetchStyles(this.state.selectedStyle)
-        let beersByStyls = this.props.beers
-        this.setState( { beers: beersByStyls } )
-      }
-    }
-
-
   render() {
-    console.log(this.state.beers);
+    const beers = this.state.beers.map( (beer, index) => {
+      return (
+        <li key={index}>
+          {index+1}. {beer.brewery} { beer.name }
+        </li>
+      )
+    })
+
     return(
       <div>
-        <h1>View beers by style</h1>
-        <select value={this.state.selectedStyle} onChange={this.updateStyle.bind(this)}>
-          {this.showStyles()}
-        </select>
-        <div> {this.state.selectedStyle === "Select All" ?
-          "" :
-          <h1>{this.state.selectedStyle}</h1>}
-         </div>
-        <ul>
-          <button onClick={this.changeItUp.bind(this)}>Change</button>
-        </ul>
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+          <h1>View beers by style</h1>
+          <select value={this.state.selectedStyle} onChange={this.updateStyle.bind(this)}>
+            {this.showStyles()}
+          </select>
+        </div>
+
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-8">
+
+          {this.state.selectedStyle === "Select All" ?
+            "" :
+            <h1>{this.state.selectedStyle}</h1>}
+
+            <ul className="beers">
+              { beers }
+            </ul>
+
+        </div>
+
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    beers: state.beers,
-  }
-}
-
-
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchStyles: function(style) {
-      var action = fetchStyles(style)
-      dispatch(action)
-    },
-    fetchBeers: function() {
-      var action = fetchBeers()
-      dispatch(action)
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(StyleSelection)
+export default StyleSelection
 
 StyleSelection.propTypes = {
   styles: Proptypes.arrayOf(Proptypes.string.isRequired).isRequired,

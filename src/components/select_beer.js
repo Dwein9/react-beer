@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 class SelectBeer extends Component {
+  constructor(props) {
+    super(props)
+  }
+
   render() {
-    if (!!this.props.selectBeer) {
-      const beer = this.props.selectBeer
+    if (!!this.props.selection) {
+      const beer = this.props.selection
       return (
-        <div className="select col-xs-12 col-sm-12 col-md-6 col-lg-8">
+        <div>
           <h1> {"Name:"} {beer.brewery} { beer.name } </h1>
           <h3> {"Style: "} { beer.style } </h3>
           <h5> {"Drank in "} { beer.month } </h5>
@@ -23,10 +26,4 @@ class SelectBeer extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    selectBeer: state.selectBeer
-  }
-}
-
-export default connect(mapStateToProps)(SelectBeer)
+export default SelectBeer

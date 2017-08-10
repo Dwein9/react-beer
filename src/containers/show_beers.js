@@ -1,32 +1,16 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchBeers } from '../actions/index'
-import BeerListItem from '../components/beer_list_item'
-import SelectBeer from '../components/select_beer';
+import BeerList from '../components/beer_list'
+import beer from '../data/beer';
 
 class ShowBeers extends Component {
-
-  componentWillMount() {
-    this.props.fetchBeers()
-  }
 
   render() {
     return (
       <div>
-        <BeerListItem beers={this.props.beers}/>
-        <SelectBeer />
+        <BeerList beers={ beer } />
       </div>
     )
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchBeers: function() {
-      var action = fetchBeers()
-      dispatch(action)
-    }
-  }
-}
-
-export default connect(null, mapDispatchToProps)(ShowBeers)
+export default ShowBeers

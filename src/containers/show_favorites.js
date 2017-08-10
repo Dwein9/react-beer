@@ -1,32 +1,26 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { fetchBeers } from '../actions/index'
-import Favorites from '../components/favorites';
-import SelectBeer from '../components/select_beer';
+import beers from '../data/beer';
 
 class ShowFavorites extends Component {
 
-  componentWillMount() {
-    this.props.fetchBeers()
-  }
+    render() {
+      const faves = beers.filter(b => b.favorite).map( (beer, index) => {
+        return (
+          <li key={index}>
+            {index+1}. {beer.brewery} { beer.name }
+          </li>
+        )
+      })
 
-  render() {
-    return (
-      <div>
-        <Favorites beers={this.props.beers} />
-        <SelectBeer />
-      </div>
-    )
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    fetchBeers: function() {
-      var action = fetchBeers()
-      dispatch(action)
+      return (
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4" >
+          <h2>Favorites</h2>
+          <ul className="beers">
+             { faves }
+          </ul>
+        </div>
+      )
     }
   }
-}
 
-export default connect(null, mapDispatchToProps)(ShowFavorites)
+export default ShowFavorites
