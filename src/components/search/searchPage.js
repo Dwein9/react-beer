@@ -11,12 +11,12 @@ export default class searchPage extends Component {
   }
 
   parseData(data){
-    var results = {}
+    var results = []
     for (let i = 1; i < data.length; i++) {
-      results[i] = {
+      results.push({
         img: data[i].split('<img src="')[1].split('">')[0],
         name: data[i].split('<p class="name">')[1].split('>')[1].split('<')[0]
-      }
+      })
     }
     return results
   }
