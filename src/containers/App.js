@@ -5,6 +5,7 @@ import ShowBeers from './show_beers';
 import ShowStyles from './show_styles';
 import ShowFavorites from './show_favorites';
 import Home from '../components/home';
+import Search from '../components/search/searchPage';
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
                 <Route path='/beers' component={ShowBeers} />
                 <Route path='/styles' component={ShowStyles} />
                 <Route path='/faves' component={ShowFavorites} />
+                <Route path='/search' component={Search} />
               </Switch>
             </div>
           </div>
