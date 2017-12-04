@@ -10,6 +10,7 @@ export default class searchForm extends Component {
 
   handleSubmit(e){
     e.preventDefault()
+    this.props.search(this.state.query)
     this.setState({
       query: ""
   })
@@ -24,7 +25,7 @@ export default class searchForm extends Component {
   render() {
     return (
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <h3>Search a Brewery</h3>
+        <h3>Search a brewery to view popular beers</h3>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <input type='text' onChange={this.handleChange.bind(this)} value={this.state.query} />
           <input type='submit' />
