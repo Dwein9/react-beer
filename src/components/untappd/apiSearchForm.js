@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class apiSearchForm extends Component {
+export default class APIsearchForm extends Component {
 
   componentWillMount(){
     this.setState({
