@@ -9,6 +9,7 @@
 # production
 /build
 /data
+src/components/untappd/api.js
 
 # misc
 .DS_Store
